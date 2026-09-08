@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>El Palique | Bar en Moratalaz</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:#f8f4ed;
+  color:#171b1a;
+}
+
+header{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:#101817;
+  color:white;
+  padding:15px 6%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.logo{
+  font-size:28px;
+  font-weight:bold;
+  font-style:italic;
+}
+
+.logo span{
+  color:#e8b34d;
+}
+
+nav a{
+  color:white;
+  text-decoration:none;
+  margin-left:25px;
+  font-weight:bold;
+}
+
+nav a:hover{
+  color:#e8b34d;
+}
+
+.hero{
+  min-height:650px;
+  background:
+  linear-gradient(rgba(0,0,0,.60),rgba(0,0,0,.55)),
+  linear-gradient(120deg,#263a36,#9a6245);
+  display:flex;
+  align-items:center;
+  padding:60px 8%;
+  color:white;
+}
+
+.hero-content{
+  max-width:650px;
+}
+
+.hero small{
+  color:#e8b34d;
+  font-weight:bold;
+  letter-spacing:3px;
+}
+
+.hero h1{
+  font-family:Georgia,serif;
+  font-size:75px;
+  margin:15px 0;
+}
+
+.hero h1 span{
+  color:#e8b34d;
+}
+
+.hero p{
+  font-size:21px;
+  line-height:1.6;
+  margin-bottom:30px;
+}
+
+.buttons{
+  display:flex;
+  gap:15px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  display:inline-block;
+  padding:15px 25px;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:bold;
+  border:2px solid #e8b34d;
+}
+
+.btn-main{
+  background:#e8b34d;
+  color:#111;
+}
+
+.btn-light{
+  color:white;
+}
+
+section{
+  padding:80px 7%;
+}
+
+.section-title{
+  text-align:center;
+  margin-bottom:45px;
+}
+
+.section-title small{
+  color:#b87920;
+  letter-spacing:3px;
+  font-weight:bold;
+}
+
+.section-title h2{
+  font-family:Georgia,serif;
+  font-size:48px;
+  margin-top:10px;
+}
+
+.intro{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:50px;
+  align-items:center;
+  background:#fff;
+}
+
+.intro h2{
+  font-family:Georgia,serif;
+  font-size:45px;
+}
+
+.intro p{
+  font-size:18px;
+  line-height:1.8;
+  color:#555;
+}
+
+.menu{
+  background:#f8f4ed;
+}
+
+.menu-grid{
+  max-width:1100px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.menu-card{
+  background:white;
+  padding:30px;
+  border-radius:18px;
+  box-shadow:0 5px 25px rgba(0,0,0,.07);
+}
+
+.menu-card h3{
+  font-family:Georgia,serif;
+  font-size:27px;
+  color:#354b43;
+  margin-bottom:20px;
+}
+
+.menu-card li{
+  list-style:none;
+  padding:13px 0;
+  border-bottom:1px solid #eee;
+}
+
+.reservas{
+  background:#354b43;
+  color:white;
+}
+
+.reserva-box{
+  max-width:800px;
+  margin:auto;
+  background:white;
+  color:#111;
+  padding:35px;
+  border-radius:20px;
+}
+
+.form-row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+}
+
+label{
+  display:block;
+  font-weight:bold;
+  margin-bottom:18px;
+}
+
+input,select,textarea{
+  width:100%;
+  margin-top:7px;
+  padding:14px;
+  border:1px solid #ddd;
+  border-radius:10px;
+  font-size:16px;
+}
+
+button{
+  width:100%;
+  border:0;
+  padding:16px;
+  border-radius:30px;
+  background:#e8b34d;
+  font-size:17px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.horas{
+  background:#f8f4ed;
+}
+
+.horario{
+  max-width:700px;
+  margin:auto;
+  background:white;
+  border-radius:18px;
+  overflow:hidden;
+}
+
+.dia{
+  display:flex;
+  justify-content:space-between;
+  padding:17px 25px;
+  border-bottom:1px solid #eee;
+}
+
+.contacto{
+  background:#101817;
+  color:white;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:50px;
+  align-items:center;
+}
+
+.contacto h2{
+  font-family:Georgia,serif;
+  font-size:45px;
+  margin-bottom:20px;
+}
+
+.contacto p{
+  line-height:1.8;
+  color:#ddd;
+  font-size:17px;
+}
+
+.mapa{
+  background:#25312e;
+  padding:30px;
+  border-radius:20px;
+}
+
+.mapa a{
+  color:#e8b34d;
+  font-weight:bold;
+}
+
+footer{
+  background:#080d0c;
+  color:white;
+  padding:30px 7%;
+  display:flex;
+  justify-content:space-between;
+}
+
+@media(max-width:800px){
+
+  header{
+    padding:15px 5%;
+  }
+
+  nav a{
+    margin-left:10px;
+    font-size:13px;
+  }
+
+  .hero{
+    min-height:600px;
+  }
+
+  .hero h1{
+    font-size:55px;
+  }
+
+  .intro,
+  .menu-grid,
+  .contacto{
+    grid-template-columns:1fr;
+  }
+
+  .form-row{
+    grid-template-columns:1fr;
+  }
+
+  section{
+    padding:65px 6%;
+  }
+
+  .section-title h2{
+    font-size:38px;
+  }
+
+  footer{
+    flex-direction:column;
+    gap:15px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+El <span>Palique</span> 🍻
+</div>
+
+<nav>
+<a href="#inicio">Inicio</a>
+<a href="#carta">Carta</a>
+<a href="#reservas">Reservas</a>
+<a href="#contacto">Contacto</a>
+</nav>
+
+</header>
+
+
+<section class="hero" id="inicio">
+
+<div class="hero-content">
+
+<small>BAR · MORATALAZ · MADRID</small>
+
+<h1>
+Bienvenidos a<br>
+<span>El Palique</span>
+</h1>
+
+<p>
+Buen ambiente, buena comida y mucho palique.
+Un sitio para venir, compartir y quedarse.
+</p>
+
+<div class="buttons">
+
+<a href="#reservas" class="btn btn-main">
+Reservar mesa
+</a>
+
+<a href="#carta" class="btn btn-light">
+Ver carta
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="intro">
+
+<div>
+
+<small style="color:#b87920;font-weight:bold;letter-spacing:3px">
+BIENVENIDOS
+</small>
+
+<h2>
+Donde lo importante es darle al palique.
+</h2>
+
+</div>
+
+<p>
+En El Palique queremos que vengas a disfrutar.
+Un espacio en Moratalaz pensado para compartir
+comida, bebida y buenos momentos con amigos,
+familia o quien tú quieras.
+</p>
+
+</section>
+
+
+<section class="menu" id="carta">
+
+<div class="section-title">
+
+<small>NUESTRA CARTA</small>
+
+<h2>Para compartir y disfrutar</h2>
+
+</div>
+
+
+<div class="menu-grid">
+
+<div class="menu-card">
+
+<h3>Trending topics</h3>
+
+<ul>
+
+<li>Nachos</li>
+<li>Patatas Palique</li>
+<li>Patatas con queso fundido y rabo de toro</li>
+<li>Gyozas de pollo al curry</li>
+<li>Gyozas</li>
+
+</ul>
+
+</div>
+
+
+<div class="menu-card">
+
+<h3>Morro fino</h3>
+
+<ul>
+
+<li>Burrata</li>
+<li>Pulpo a la gallega</li>
+<li>Jamón ibérico</li>
+<li>Alcachofas con virutas de ibérico</li>
+<li>Carpaccio de oreja a la gallega</li>
+<li>Steak tartar</li>
+
+</ul>
+
+</div>
+
+
+<div class="menu-card">
+
+<h3>Conversaciones serias</h3>
+
+<ul>
+
+<li>Tortillita clásica</li>
+<li>Tortillita de rulo de cabra</li>
+<li>Tortillita trufada</li>
+<li>Baos</li>
+<li>Costillas a baja temperatura</li>
+<li>Risotto de rabo de toro</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="reservas" id="reservas">
+
+<div class="section-title">
+
+<small style="color:#e8b34d">
+RESERVA ONLINE
+</small>
+
+<h2>
+Reserva tu mesa
+</h2>
+
+<p style="margin-top:15px">
+Elige el día, las personas y tu hora preferida.
+</p>
+
+</div>
+
+
+<div class="reserva-box">
+
+<form onsubmit="reservar(event)">
+
+<div class="form-row">
+
+<label>
+Fecha
+<input type="date" id="fecha" required>
+</label>
+
+<label>
+Personas
+<select required>
+<option>1 persona</option>
+<option selected>2 personas</option>
+<option>3 personas</option>
+<option>4 personas</option>
+<option>5 personas</option>
+<option>6 personas</option>
+<option>7 personas</option>
+<option>8 personas</option>
+<option>9 personas</option>
+<option>10 personas</option>
+</select>
+</label>
+
+</div>
+
+
+<label>
+Hora
+
+<select required>
+
+<option value="">Selecciona una hora</option>
+
+<option>18:00</option>
+<option>18:30</option>
+<option>19:00</option>
+<option>19:30</option>
+<option>20:00</option>
+<option>20:30</option>
+<option>21:00</option>
+<option>21:30</option>
+<option>22:00</option>
+<option>22:30</option>
+
+</select>
+
+</label>
+
+
+<div class="form-row">
+
+<label>
+Nombre
+
+<input
+type="text"
+placeholder="Tu nombre"
+required
+>
+
+</label>
+
+
+<label>
+Teléfono
+
+<input
+type="tel"
+placeholder="600 000 000"
+required
+>
+
+</label>
+
+</div>
+
+
+<label>
+Notas (opcional)
+
+<textarea
+rows="3"
+placeholder="Cumpleaños, terraza, etc."
+></textarea>
+
+</label>
+
+
+<button type="submit">
+CONFIRMAR RESERVA
+</button>
+
+
+<p id="mensaje"
+style="text-align:center;margin-top:15px;font-weight:bold">
+</p>
+
+</form>
+
+</div>
+
+</section>
+
+
+<section class="horas">
+
+<div class="section-title">
+
+<small>HORARIO</small>
+
+<h2>Cuándo venir a El Palique</h2>
+
+</div>
+
+
+<div class="horario">
+
+<div class="dia">
+<span>Lunes</span>
+<strong>18:00 – 23:30</strong>
+</div>
+
+<div class="dia">
+<span>Martes</span>
+<strong>18:00 – 23:30</strong>
+</div>
+
+<div class="dia">
+<span>Miércoles</span>
+<strong>18:00 – 23:30</strong>
+</div>
+
+<div class="dia">
+<span>Jueves</span>
+<strong>18:00 – 23:30</strong>
+</div>
+
+<div class="dia">
+<span>Viernes</span>
+<strong>12:30 – 01:00</strong>
+</div>
+
+<div class="dia">
+<span>Sábado</span>
+<strong>12:00 – 01:00</strong>
+</div>
+
+<div class="dia">
+<span>Domingo</span>
+<strong>12:00 – 23:30</strong>
+</div>
+
+</div>
+
+</section>
+
+
+<section class="contacto" id="contacto">
+
+<div>
+
+<h2>
+El Palique
+</h2>
+
+<p>
+📍 Avenida de Moratalaz, 141, Posterior<br>
+28030 Madrid
+</p>
+
+<br>
+
+<p>
+📞 <a href="tel:622808573" style="color:white">
+622 808 573
+</a>
+</p>
+
+<br>
+
+<a
+href="https://maps.google.com/?q=Avenida+de+Moratalaz+141+Madrid"
+target="_blank"
+class="btn btn-main"
+>
+Cómo llegar
+</a>
+
+</div>
+
+
+<div class="mapa">
+
+<h3 style="font-size:28px;margin-bottom:15px">
+📍 Estamos en Moratalaz
+</h3>
+
+<p>
+Ven a visitarnos y disfruta de El Palique.
+</p>
+
+<br>
+
+<a
+href="https://maps.google.com/?q=Avenida+de+Moratalaz+141+Madrid"
+target="_blank"
+>
+Abrir ubicación en Google Maps →
+</a>
+
+</div>
+
+</section>
+
+
+<footer>
+
+<div>
+<strong>El Palique 🍻</strong>
+<br>
+<small>Moratalaz · Madrid</small>
+</div>
+
+<div>
+© 2026 El Palique
+</div>
+
+</footer>
+
+
+<script>
+
+const fecha=document.getElementById("fecha");
+
+const hoy=new Date();
+
+fecha.min=hoy.toISOString().split("T")[0];
+
+
+function reservar(event){
+
+event.preventDefault();
+
+document.getElementById("mensaje").innerHTML=
+"✅ Solicitud recibida. En breve confirmaremos tu reserva.";
+
+}
+
+</script>
+
+</body>
+</html>
